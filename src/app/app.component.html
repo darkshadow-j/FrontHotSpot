@@ -1,7 +1,19 @@
-<h1>Angular Router</h1>
-<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
-<nav>
-  <a routerLink="/profiles" routerLinkActive="active">Profile</a>
-  <a routerLink="/services" routerLinkActive="active">Usługi</a>
-</nav>
-<router-outlet></router-outlet>
+<mat-grid-list cols = "8" rowHeight = "100px">
+  <mat-grid-tile
+    [colspan] = "8"
+    [rowspan] = "1">1
+  </mat-grid-tile>
+  <mat-grid-tile
+    [colspan] = "1"
+    [rowspan] = "6">2
+  </mat-grid-tile>
+  <mat-grid-tile
+    [colspan] = "7"
+    [rowspan] = "6">3
+  </mat-grid-tile>
+  <mat-grid-tile
+    [colspan] = "8"
+    [rowspan] = "1">3
+  </mat-grid-tile>
+
+</mat-grid-list>

@@ -7,6 +7,7 @@ import { HotSpotProfileComponent } from './hot-spot-profile/hot-spot-profile.com
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 const appRoutes: Routes = [
   { path: 'profiles', component: HotSpotProfileComponent },
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     MatSliderModule,
+    MatGridListModule,
     BrowserModule,
     RouterModule.forRoot(
       appRoutes,
