@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { HotSpotServiceComponent } from './hot-spot-service/hot-spot-service.component';
 import { HotSpotProfileComponent } from './hot-spot-profile/hot-spot-profile.component';
 import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
 
 const appRoutes: Routes = [
   { path: 'profiles', component: HotSpotProfileComponent },
@@ -18,11 +20,13 @@ const appRoutes: Routes = [
     HotSpotProfileComponent
   ],
   imports: [
+    MatSliderModule,
     BrowserModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
-    )
+    ),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
