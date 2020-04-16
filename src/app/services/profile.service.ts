@@ -19,6 +19,10 @@ export class ProfileService {
     return this.httpClient.get<RouterModelnew[]>('http://localhost:8080/router');
   }
 
+  public addOneProfile(prof: Profiles): Observable<Profiles> {
+    return this.httpClient.post<Profiles>('http://localhost:8080/profiles', prof);
+  }
+
   public addProfile(): Observable<Profiles> {
     const prof: Profiles = ({
       name: 'test',
