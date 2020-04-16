@@ -1,0 +1,15 @@
+mat-card {
+  width: calc(100% - 70px);
+  height: calc(100% - 70px);
+}
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+th, td {
+  overflow: hidden;
+  width: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

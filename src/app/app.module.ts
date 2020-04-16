@@ -15,13 +15,16 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
-import { HttpClientModule } from '@angular/common/http';
-import { RoutersComponent } from './routers/routers.component';
+import {HttpClientModule} from '@angular/common/http';
+import {RoutersComponent} from './routers/routers.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {MatTableModule} from '@angular/material/table';
 
 const appRoutes: Routes = [
   {path: 'profiles', component: HotSpotProfileComponent},
   {path: 'services', component: HotSpotServiceComponent},
-  {path: 'routers', component:  RoutersComponent}
+  {path: 'routers', component: RoutersComponent},
+  {path: 'home', component: DashboardComponent}
 ];
 
 @NgModule({
@@ -30,8 +33,10 @@ const appRoutes: Routes = [
     HotSpotServiceComponent,
     HotSpotProfileComponent,
     RoutersComponent,
+    DashboardComponent,
   ],
   imports: [
+    MatTableModule,
     MatCardModule,
     HttpClientModule,
     MatListModule,
@@ -52,5 +57,5 @@ const appRoutes: Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule  {
+export class AppModule {
 }

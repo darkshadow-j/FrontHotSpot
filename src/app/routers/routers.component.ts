@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ProfileService, RouterModel} from '../services/profile.service';
+import {ProfileService, RouterModel, RouterModelnew} from '../services/profile.service';
 
 @Component({
   selector: 'app-routers',
@@ -9,13 +9,14 @@ import {ProfileService, RouterModel} from '../services/profile.service';
 export class RoutersComponent implements OnInit {
 
   routerModel: RouterModel[];
+  ssss: RouterModelnew[];
 
   constructor(private service: ProfileService) {
   }
 
   ngOnInit(): void {
     this.service.getRoutersList().subscribe(value => {
-      this.routerModel = value;
+      this.ssss = value;
     });
   }
 
@@ -27,6 +28,6 @@ export class RoutersComponent implements OnInit {
       username: value4
     });
     this.service.addRouter(router).subscribe();
-    this.service.getRoutersList().subscribe(value1 => this.routerModel = value1);
+   /* this.service.getRoutersList().subscribe(value1 => this.routerModel = value1);*/
   }
 }
