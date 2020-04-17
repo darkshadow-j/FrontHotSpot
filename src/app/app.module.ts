@@ -13,6 +13,7 @@ import {AddHSProfileComponent} from './add-hsprofile/add-hsprofile.component';
 import {AllMaterialModule} from '../all-material.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RouteraddComponent } from './routeradd/routeradd.component';
+import { AddserviceComponent } from './addservice/addservice.component';
 
 
 const appRoutes: Routes = [
@@ -21,7 +22,8 @@ const appRoutes: Routes = [
   {path: 'routers', component: RoutersComponent},
   {path: 'home', component: DashboardComponent},
   {path: 'addhsprofile', component: AddHSProfileComponent},
-  {path: 'routeradd', component: RouteraddComponent}
+  {path: 'routeradd', component: RouteraddComponent},
+  {path: 'addservice', component: AddserviceComponent}
 ];
 
 @NgModule({
@@ -33,6 +35,7 @@ const appRoutes: Routes = [
     DashboardComponent,
     AddHSProfileComponent,
     RouteraddComponent,
+    AddserviceComponent,
   ],
   imports: [
     ReactiveFormsModule,

@@ -1,0 +1,42 @@
+<mat-grid-list cols="1" rowHeight="100px">
+  <mat-grid-tile
+    [colspan]="1"
+    [rowspan]="5">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Dodaj nową usługę</mat-card-title>
+      </mat-card-header>
+      <mat-card-content align="center">
+        <form [formGroup]="form">
+          <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Nazwa</mat-label>
+              <input matInput placeholder="Podaj nazwę" formControlName="test" #nazwa>
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+          </p>
+
+        </form>
+        <form>
+
+          <mat-form-field>
+            <mat-label>Profil HotSpot</mat-label>
+            <select matNativeControl [(ngModel)]="selectedProfile" name="car" #profil>
+              <option *ngFor="let profile of profiles" [ngValue]="profile">
+                {{profile.name}}
+              </option>
+            </select>
+          </mat-form-field>
+        </form>
+        <div align="right">
+          <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="addHSServoce(nazwa)">
+            <mat-icon>add_box</mat-icon>
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+  </mat-grid-tile>
+
+</mat-grid-list>

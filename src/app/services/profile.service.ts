@@ -15,6 +15,10 @@ export class ProfileService {
     return this.httpClient.get<Profiles[]>('http://localhost:8080/profile');
   }
 
+  public getAllHSService(): Observable<HotSpotUsluga[]> {
+    return this.httpClient.get<HotSpotUsluga[]>('http://localhost:8080/usluga');
+  }
+
   public getRoutersList(): Observable<Router[]> {
     return this.httpClient.get<Router[]>('http://localhost:8080/router');
   }
@@ -36,13 +40,16 @@ export class ProfileService {
 
   public addRouter(router: Router): Observable<RouterModel> {
     return this.httpClient.post<RouterModel>('http://localhost:8080/router', router);
-}
+  }
 
-  public getRoutersCount(): Observable<any>{
+  public getRoutersCount(): Observable<any> {
     return this.httpClient.get<any>('http://localhost:8080/router/count');
   }
 
 
+  addHSUsluga(usluga: HotSpotUsluga) {
+    return this.httpClient.post<HotSpotUsluga>('http://localhost:8080/usluga', usluga);
+  }
 }
 
 export interface Router {
@@ -52,15 +59,17 @@ export interface Router {
   ipAddress: string;
   portList: PortList[];
 }
+
 export interface PortList {
   id: number;
   name: string;
 }
 
 export interface Profiles {
-  name: string;
-  dnsName: string;
-  rateLimit: string;
+  id?: number;
+  name?: string;
+  dnsName?: string;
+  rateLimit?: string;
 }
 
 export interface RouterModel {
@@ -70,18 +79,12 @@ export interface RouterModel {
   password: string;
 }
 
-
-
-export interface HotSpotProfileModel {
+export interface HotSpotUsluga {
+  id?: number;
   name: string;
-  dnsName: string;
-  limit: string;
+  profile: Profiles;
 }
 
-export interface HotSpotServiceModel {
-  name: string;
-  hotSpotProfileModel: HotSpotProfileModel;
-}
 
 
 

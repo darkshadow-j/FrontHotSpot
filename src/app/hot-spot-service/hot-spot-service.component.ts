@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {HotSpotUsluga, ProfileService} from '../services/profile.service';
 
 @Component({
   selector: 'app-hot-spot-service',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HotSpotServiceComponent implements OnInit {
 
-  constructor() { }
+  uslugi: HotSpotUsluga[];
+
+  constructor(private profileService: ProfileService,) {
+  }
 
   ngOnInit(): void {
+    this.profileService.getAllHSService().subscribe(value => {
+      this.uslugi = value;
+    });
   }
 
 }
