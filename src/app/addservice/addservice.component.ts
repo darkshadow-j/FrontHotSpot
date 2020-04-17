@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {HotSpotUsluga, Profiles, ProfileService} from '../services/profile.service';
+import {HotSpotUsluga, PortList, Profiles, ProfileService, Router} from '../services/profile.service';
 
 @Component({
   selector: 'app-addservice',
@@ -11,7 +11,10 @@ export class AddserviceComponent implements OnInit {
   form: FormGroup;
   profiles: Profiles[];
   selectedProfile: Profiles;
-
+  routers: Router[];
+  selectedRouter: Router;
+  ports: PortList[];
+  selectedPort: PortList;
   constructor(private profileService: ProfileService, private fb: FormBuilder) {
   }
 
@@ -22,6 +25,9 @@ export class AddserviceComponent implements OnInit {
     this.profileService.getProfilesList().subscribe(value => {
       this.profiles = value;
     });
+    this.profileService.getRoutersList().subscribe(value => {
+      this.routers = value;
+    });
   }
 
   addHSServoce(nazwa: HTMLInputElement) {
@@ -30,11 +36,17 @@ export class AddserviceComponent implements OnInit {
       name: nazwa.value,
       profile: this.selectedProfile
     });
-    console.log(hotSpotUsluga)
+    console.log(hotSpotUsluga);
+    console.log(this.selectedPort);
     this.profileService.addHSUsluga(hotSpotUsluga).subscribe();
   }
 
   setNewUser(profile: Profiles): void {
     console.log(profile.name);
+  }
+
+  getPorts() {
+    this.ports = this.selectedRouter.portList;
+    console.log(this.ports);
   }
 }

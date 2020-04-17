@@ -19,18 +19,41 @@
 
         </form>
         <form>
+          <p>
+            <mat-form-field>
+              <mat-label>Profil HotSpot</mat-label>
+              <select matNativeControl [(ngModel)]="selectedProfile" name="car" #profil>
+                <option *ngFor="let profile of profiles" [ngValue]="profile">
+                  {{profile.name}}
+                </option>
+              </select>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field>
+              <mat-label>Router</mat-label>
+              <select matNativeControl [(ngModel)]="selectedRouter" name="car" (change)="getPorts()">
+                <option *ngFor="let router of routers" [ngValue]="router">
+                  {{router.name}}
+                </option>
+              </select>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field>
+              <mat-label>Port</mat-label>
+              <select matNativeControl [(ngModel)]="selectedPort" name="car">
+                <option *ngFor="let port of ports" [ngValue]="port">
+                  {{port.name}}
+                </option>
+              </select>
+            </mat-form-field>
+          </p>
 
-          <mat-form-field>
-            <mat-label>Profil HotSpot</mat-label>
-            <select matNativeControl [(ngModel)]="selectedProfile" name="car" #profil>
-              <option *ngFor="let profile of profiles" [ngValue]="profile">
-                {{profile.name}}
-              </option>
-            </select>
-          </mat-form-field>
         </form>
         <div align="right">
-          <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="addHSServoce(nazwa)">
+          <button mat-fab color="primary" aria-label="Example icon button with a delete icon"
+                  (click)="addHSServoce(nazwa)">
             <mat-icon>add_box</mat-icon>
           </button>
         </div>
