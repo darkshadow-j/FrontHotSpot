@@ -12,30 +12,29 @@ export class ProfileService {
   }
 
   public getProfilesList(): Observable<Profiles[]> {
-    return this.httpClient.get<Profiles[]>('http://localhost:8080/profiles');
+    return this.httpClient.get<Profiles[]>('http://localhost:8080/profile');
   }
 
-  public getRoutersList(): Observable<RouterModelnew[]> {
-    return this.httpClient.get<RouterModelnew[]>('http://localhost:8080/router');
+  public getRoutersList(): Observable<Router[]> {
+    return this.httpClient.get<Router[]>('http://localhost:8080/router');
   }
 
   public addOneProfile(prof: Profiles): Observable<Profiles> {
-    return this.httpClient.post<Profiles>('http://localhost:8080/profiles', prof);
+    return this.httpClient.post<Profiles>('http://localhost:8080/profile', prof);
   }
 
   public addProfile(): Observable<Profiles> {
     const prof: Profiles = ({
       name: 'test',
       dnsName: 'ss',
-      limit: 'ss',
+      rateLimit: 'ss',
     });
     console.log('dodaje');
     console.log('xxx' + prof.name);
     return this.httpClient.post<Profiles>('http://localhost:8080/profiles', prof);
   }
 
-  public addRouter(router: RouterModel): Observable<RouterModel> {
-    console.log(router);
+  public addRouter(router: Router): Observable<RouterModel> {
     return this.httpClient.post<RouterModel>('http://localhost:8080/router', router);
 }
 
@@ -46,10 +45,22 @@ export class ProfileService {
 
 }
 
+export interface Router {
+  name: string;
+  username: string;
+  password: string;
+  ipAddress: string;
+  portList: PortList[];
+}
+export interface PortList {
+  id: number;
+  name: string;
+}
+
 export interface Profiles {
   name: string;
   dnsName: string;
-  limit: string;
+  rateLimit: string;
 }
 
 export interface RouterModel {
@@ -58,6 +69,8 @@ export interface RouterModel {
   username: string;
   password: string;
 }
+
+
 
 export interface HotSpotProfileModel {
   name: string;
@@ -70,16 +83,5 @@ export interface HotSpotServiceModel {
   hotSpotProfileModel: HotSpotProfileModel;
 }
 
-export interface PortList {
-  name: string;
-  hotSpotServiceModel: HotSpotServiceModel;
-}
 
-export interface RouterModelnew {
-  name: string;
-  ipAdress: string;
-  username: string;
-  password: string;
-  portList: PortList;
-}
 

@@ -25,7 +25,7 @@ export class AddHSProfileComponent implements OnInit {
     const prof: Profiles = ({
       name: value,
       dnsName: value2,
-      limit: value3,
+      rateLimit: value3,
     });
     this.profileService.addOneProfile(prof).subscribe();
   }

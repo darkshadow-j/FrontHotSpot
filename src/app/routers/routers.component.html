@@ -1,17 +1,28 @@
-<mat-card *ngFor="let router of ssss">
-  <mat-card-header>
-    <mat-card-title>{{router.name}}</mat-card-title>
-    {{router.portList.hotSpotServiceModel.name}}
-  </mat-card-header>
-  <mat-card-content>
-    sss
-  </mat-card-content>
-</mat-card>
+<mat-tab-group dynamicHeight>
+  <mat-tab *ngFor="let router of routers" label={{router.name}}>
+    <div class="example-large-box mat-elevation-z4">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{router.name}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p><label>Adres IP:</label>
+            {{router.ipAddress}}
+          </p>
+          <p><label>Ilość portów: </label>
+            {{router.portList.length}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>Edit</button>
+          <button mat-button>Delete</button>
+        </mat-card-actions>
+      </mat-card>
 
-<!--<p>AddRouter</p>
-
-<input type="text" #login>
-<input type="text" #haslo>
-<input type="text" #ip>
-<input type="text" #nazwa>
-<button (click)="addRouter(nazwa.value, ip.value, login.value, haslo.value)">dodaj</button>-->
+    </div>
+    <a mat-list-item [routerLink]="'/routeradd'"> Dodaj Router </a>
+  </mat-tab>
+</mat-tab-group>
+<a mat-list-item [routerLink]="'/routeradd'"> Dodaj Router </a>
+sss

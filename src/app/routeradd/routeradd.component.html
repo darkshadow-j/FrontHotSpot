@@ -1,0 +1,51 @@
+<mat-grid-list cols="1" rowHeight="100px">
+  <mat-grid-tile
+    [colspan]="1"
+    [rowspan]="5">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Formularz Dodawania nowego Routera</mat-card-title>
+      </mat-card-header>
+      <mat-card-content align="center">
+        <form [formGroup]="form">
+          <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Nazwa</mat-label>
+              <input matInput placeholder="Podaj nazwę" formControlName="test" #nazwa>
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Nazwa użytkownika</mat-label>
+              <input matInput placeholder="admin" formControlName="test" #username>
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Hasło</mat-label>
+              <input matInput placeholder="******" formControlName="test" #password>
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Adres IP</mat-label>
+              <input matInput placeholder="127.0.0.1" formControlName="test" #ip>
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+          </p>
+        </form>
+        <div align="right">
+          <button mat-fab color="primary" aria-label="Example icon button with a delete icon"(click)="addRouter(nazwa, username, password, ip)" >
+            <mat-icon>add_box</mat-icon>
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+  </mat-grid-tile>
+
+</mat-grid-list>

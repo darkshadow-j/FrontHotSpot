@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {PortList, ProfileService, RouterModelnew} from '../services/profile.service';
+import {PortList, ProfileService} from '../services/profile.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +10,7 @@ export class DashboardComponent implements OnInit {
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   routersCount: any;
-  dataSource: RouterModelnew[];
+  dataSource: any;
 
 
   constructor(private service: ProfileService) {
@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
       this.routersCount = value;
     });
     this.service.getRoutersList().subscribe(value => {
-      this.dataSource = value;
+      /*   this.dataSource = value;*/
     });
   }
 
@@ -36,7 +36,6 @@ export interface PeriodicElement {
 }
 
 
-
 const ELEMENT_DATA: PeriodicElement[] = [
   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
   {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
@@ -44,8 +43,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
 ];
 
-const ELEMENT3_DATA: RouterModelnew[] = [
-  {name: 'sss', ipAdress: 'ssss', username: 'user', password: 'sss', portList: null }
-];
+/*const ELEMENT3_DATA: RouterModelnew[] = [
+  {name: 'sss', ipAdress: 'ssss', username: 'user', password: 'sss', portList: null}
+];*/
 
 
