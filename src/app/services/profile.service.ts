@@ -50,6 +50,9 @@ export class ProfileService {
   addHSUsluga(usluga: HotSpotUsluga) {
     return this.httpClient.post<HotSpotUsluga>('http://localhost:8080/usluga', usluga);
   }
+  public getUnAvailableRouters(): Observable<Router[]> {
+    return this.httpClient.get<Router[]>('http://localhost:8080/router/unavailable');
+  }
 }
 
 export interface Router {

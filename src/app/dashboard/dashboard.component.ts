@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {PortList, ProfileService} from '../services/profile.service';
+import {PortList, ProfileService, Router} from '../services/profile.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,6 +11,7 @@ export class DashboardComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   routersCount: any;
   dataSource: any;
+  unavaiableRouters: Router[];
 
 
   constructor(private service: ProfileService) {
@@ -23,6 +24,9 @@ export class DashboardComponent implements OnInit {
     });
     this.service.getRoutersList().subscribe(value => {
       /*   this.dataSource = value;*/
+    });
+    this.service.getUnAvailableRouters().subscribe(value => {
+      this.unavaiableRouters = value;
     });
   }
 
