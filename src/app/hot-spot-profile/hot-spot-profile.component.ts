@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Injectable, OnInit, Output} from '@angular/core';
 import {Profiles, ProfileService} from '../services/profile.service';
+import {ProfileToEdit} from '../edit-profile/edit-profile.component';
 
 @Component({
   selector: 'app-hot-spot-profile',
@@ -8,7 +9,11 @@ import {Profiles, ProfileService} from '../services/profile.service';
 })
 export class HotSpotProfileComponent implements OnInit {
 
+  @Output() messageEvent = new EventEmitter<string>();
+  profileToEdit: Profiles;
   profiles: Profiles[];
+  message = 'sss';
+  profilee: ProfileToEdit;
 
   constructor(private profileService: ProfileService) {
   }
@@ -25,5 +30,12 @@ export class HotSpotProfileComponent implements OnInit {
       this.profiles = value;
     });
   }
+
+  public setProfileToEdit(profile: Profiles) {
+    this.profilee = ProfileToEdit.getInstance();
+    this.profilee.setProfile(profile);
+    console.log('teraz' + profile.name);
+  }
+
 
 }

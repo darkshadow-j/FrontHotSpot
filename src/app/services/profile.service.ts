@@ -53,6 +53,10 @@ export class ProfileService {
   public getUnAvailableRouters(): Observable<Router[]> {
     return this.httpClient.get<Router[]>('http://localhost:8080/router/unavailable');
   }
+
+  editOneProfile(prof: Profiles): Observable<Profiles> {
+    return this.httpClient.put<Profiles>('http://localhost:8080/profile', prof);
+  }
 }
 
 export interface Router {

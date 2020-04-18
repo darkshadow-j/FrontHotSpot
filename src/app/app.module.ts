@@ -14,6 +14,7 @@ import {AllMaterialModule} from '../all-material.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RouteraddComponent } from './routeradd/routeradd.component';
 import { AddserviceComponent } from './addservice/addservice.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 
 const appRoutes: Routes = [
@@ -23,7 +24,8 @@ const appRoutes: Routes = [
   {path: 'home', component: DashboardComponent},
   {path: 'addhsprofile', component: AddHSProfileComponent},
   {path: 'routeradd', component: RouteraddComponent},
-  {path: 'addservice', component: AddserviceComponent}
+  {path: 'addservice', component: AddserviceComponent},
+  {path: 'editprofile', component: EditProfileComponent}
 ];
 
 @NgModule({
@@ -36,6 +38,7 @@ const appRoutes: Routes = [
     AddHSProfileComponent,
     RouteraddComponent,
     AddserviceComponent,
+    EditProfileComponent,
   ],
   imports: [
     ReactiveFormsModule,

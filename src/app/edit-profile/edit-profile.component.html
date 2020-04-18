@@ -1,0 +1,28 @@
+<mat-grid-list cols="1" rowHeight="100px">
+  <mat-grid-tile
+    [colspan]="1"
+    [rowspan]="5">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Formularz Edycji profilu {{editProfile.name}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content align="center">
+        <form>
+          <p>Nazwa: <input value="{{editProfile.name}}" type="text" disabled #nazwa></p>
+          <p>Nazwa dns: <input value="{{editProfile.dnsName}}" type="text" #url></p>
+          <p>Limity: <input value="{{editProfile.rateLimit}}" type="text" #limit></p>
+
+
+        </form>
+        <div align="right">
+          <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="editProfileRe(nazwa.value, url.value, limit.value)">
+            <mat-icon>add_box</mat-icon>
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+  </mat-grid-tile>
+
+</mat-grid-list>
