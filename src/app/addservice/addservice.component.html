@@ -17,6 +17,22 @@
             </mat-form-field>
           </p>
 
+          <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Adres IP</mat-label>
+              <input matInput placeholder="127.0.0.1" formControlName="test" #ipadd>
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+          </p>
+
+          <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Pula IP</mat-label>
+              <input matInput placeholder="Podaj nazwę" formControlName="test" #ippool>
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+          </p>
+
         </form>
         <form>
           <p>
@@ -43,7 +59,7 @@
             <mat-form-field>
               <mat-label>Port</mat-label>
               <select matNativeControl [(ngModel)]="selectedPort" name="car">
-                <option *ngFor="let port of ports" [ngValue]="port">
+                <option *ngFor="let port of ports" [ngValue]="port" #portn>
                   {{port.name}}
                 </option>
               </select>
@@ -53,7 +69,7 @@
         </form>
         <div align="right">
           <button mat-fab color="primary" aria-label="Example icon button with a delete icon"
-                  (click)="addHSServoce(nazwa)">
+                  (click)="addHSServoce(nazwa, ipadd, ippool)">
             <mat-icon>add_box</mat-icon>
           </button>
         </div>

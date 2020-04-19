@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {HotSpotUsluga, PortList, Profiles, ProfileService, Router} from '../services/profile.service';
+import {HotSpotUsluga, IpPool, PortList, Profiles, ProfileService, Profilex, Router, Usluga} from '../services/profile.service';
+import {isPointerNearClientRect} from '@angular/cdk/drag-drop/client-rect';
 
 @Component({
   selector: 'app-addservice',
@@ -10,11 +11,12 @@ import {HotSpotUsluga, PortList, Profiles, ProfileService, Router} from '../serv
 export class AddserviceComponent implements OnInit {
   form: FormGroup;
   profiles: Profiles[];
-  selectedProfile: Profiles;
+  selectedProfile: Profilex;
   routers: Router[];
   selectedRouter: Router;
   ports: PortList[];
   selectedPort: PortList;
+
   constructor(private profileService: ProfileService, private fb: FormBuilder) {
   }
 
@@ -30,15 +32,21 @@ export class AddserviceComponent implements OnInit {
     });
   }
 
-  addHSServoce(nazwa: HTMLInputElement) {
+  addHSServoce(nazwa: HTMLInputElement, ip: HTMLInputElement, pool: HTMLInputElement) {
 
-    const hotSpotUsluga: HotSpotUsluga = ({
-      name: nazwa.value,
-      profile: this.selectedProfile
+    const ippoole: IpPool = ({
+      name: 'x',
+      ipPool: pool.value
     });
-    console.log(hotSpotUsluga);
-    console.log(this.selectedPort);
-    this.profileService.addHSUsluga(hotSpotUsluga).subscribe();
+    const hotSpotUslugax: Usluga = ({
+      name: nazwa.value,
+      profile: this.selectedProfile,
+      port: this.selectedPort,
+      ipAdress: ip.value,
+      ipPool: ippoole,
+    });
+    console.log(hotSpotUslugax);
+    this.profileService.addHSUslugaa(hotSpotUslugax, this.selectedRouter).subscribe();
   }
 
   setNewUser(profile: Profiles): void {
