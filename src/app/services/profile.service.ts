@@ -60,6 +60,14 @@ export class ProfileService {
 /*  deleteOneProfile(prof: Profiles): Observable<Profiles>{
     return this.httpClient.delete<Profiles>('http://localhost:8080/profile', prof.id);
   }*/
+
+  getUserProfile(): Observable<UserProfile>{
+    return this.httpClient.get<UserProfile>('http://localhost:8080/userprofile');
+  }
+
+  editUserProfile(prof: UserProfile) {
+    return this.httpClient.put<Profiles>('http://localhost:8080/userprofile', prof);
+  }
 }
 
 export interface Router {
@@ -93,6 +101,12 @@ export interface HotSpotUsluga {
   id?: number;
   name: string;
   profile: Profiles;
+}
+
+export interface UserProfile {
+  id?: number;
+  name: string;
+  sessionTimeout: string;
 }
 
 
