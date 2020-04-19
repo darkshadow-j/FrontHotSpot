@@ -51,49 +51,21 @@
     </mat-card>
   </mat-grid-tile>
   <mat-grid-tile
-    [colspan]="3"
+    [colspan]="1"
     [rowspan]="4">
     <mat-card class="example-card" fxLayoutAlign="start start">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Usługi</mat-card-title>
+        <mat-card-title>Zarejestrowani użytkownicy</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-          <!--- Note that these columns can be defined in any order.
-                The actual rendered columns are set as a property on the row definition" -->
-
-          <!-- Position Column -->
-          <ng-container matColumnDef="position">
-            <th mat-header-cell *matHeaderCellDef> numer. </th>
-            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-          </ng-container>
-
-          <!-- Name Column -->
-          <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef> Nazwa </th>
-            <td mat-cell *matCellDef="let element"> {{element.portList.hotSpotServiceModel.name}} </td>
-          </ng-container>
-
-          <!-- Weight Column -->
-          <ng-container matColumnDef="weight">
-            <th mat-header-cell *matHeaderCellDef> Router </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-          </ng-container>
-
-          <!-- Symbol Column -->
-          <ng-container matColumnDef="symbol">
-            <th mat-header-cell *matHeaderCellDef> Profil </th>
-            <td mat-cell *matCellDef="let element"> {{element.portList.hotSpotServiceModel.hotSpotProfileModel.name}} </td>
-          </ng-container>
-
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-
-
+        <div align="center">
+          <p style="font-size:200%;">
+            <a mat-list-item [routerLink]="'/user'"> {{registerUser}}
+            <mat-icon>router</mat-icon>
+            </a>
+          </p>
+        </div>
       </mat-card-content>
     </mat-card>
 

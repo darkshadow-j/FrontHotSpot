@@ -19,6 +19,7 @@ import { PowiadomieniaComponent } from './dashboard/dashboard.component';
 import { RouterPowiadomieniaComponent } from './dashboard/dashboard.component';
 import { PowiadomienieComponent } from './powiadomienie/powiadomienie.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
+import { UserComponent } from './user/user.component';
 
 
 const appRoutes: Routes = [
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
   {path: 'routeradd', component: RouteraddComponent},
   {path: 'addservice', component: AddserviceComponent},
   {path: 'editprofile', component: EditProfileComponent},
-  {path: 'userprofile', component: UserprofileComponent}
+  {path: 'userprofile', component: UserprofileComponent},
+  {path: 'user', component: UserComponent}
 ];
 
 @NgModule({
@@ -48,6 +50,7 @@ const appRoutes: Routes = [
     RouterPowiadomieniaComponent,
     PowiadomienieComponent,
     UserprofileComponent,
+    UserComponent,
   ],
   imports: [
     ReactiveFormsModule,

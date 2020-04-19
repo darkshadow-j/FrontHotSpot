@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {PortList, ProfileService, Router} from '../services/profile.service';
+import {PortList, ProfileService, Router, User} from '../services/profile.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {inspect} from 'util';
 import {PowiadomienieComponent} from '../powiadomienie/powiadomienie.component';
@@ -15,6 +15,7 @@ export class DashboardComponent implements OnInit {
   routersCount: number;
   dataSource: any;
   unavaiableRouters: Router[];
+  registerUser: number;
 
   messages = [
     {
@@ -34,6 +35,9 @@ export class DashboardComponent implements OnInit {
     });
 
     console.log(this.routersCount);
+    this.service.getUserList().subscribe(value => {
+      this.registerUser = value.length;
+    });
 
     this.service.getRoutersList().subscribe(value => {
       /*   this.dataSource = value;*/

@@ -64,10 +64,22 @@ export class ProfileService {
   getUserProfile(): Observable<UserProfile>{
     return this.httpClient.get<UserProfile>('http://localhost:8080/userprofile');
   }
+  getUserList(): Observable<User[]>{
+    return this.httpClient.get<User[]>('http://localhost:8080/user');
+  }
 
   editUserProfile(prof: UserProfile) {
     return this.httpClient.put<Profiles>('http://localhost:8080/userprofile', prof);
   }
+}
+
+export interface User {
+  id: number;
+  username: string;
+  password: string;
+  name: string;
+  surname: string;
+  telnum: string;
 }
 
 export interface Router {
