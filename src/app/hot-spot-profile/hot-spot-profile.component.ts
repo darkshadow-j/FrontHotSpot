@@ -38,4 +38,7 @@ export class HotSpotProfileComponent implements OnInit {
   }
 
 
+  deleteProfile(profile: Profiles) {
+
+  }
 }

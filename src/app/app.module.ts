@@ -15,6 +15,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RouteraddComponent } from './routeradd/routeradd.component';
 import { AddserviceComponent } from './addservice/addservice.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { PowiadomieniaComponent } from './dashboard/dashboard.component';
+import { RouterPowiadomieniaComponent } from './dashboard/dashboard.component';
+import { PowiadomienieComponent } from './powiadomienie/powiadomienie.component';
 
 
 const appRoutes: Routes = [
@@ -39,6 +42,9 @@ const appRoutes: Routes = [
     RouteraddComponent,
     AddserviceComponent,
     EditProfileComponent,
+    PowiadomieniaComponent,
+    RouterPowiadomieniaComponent,
+    PowiadomienieComponent,
   ],
   imports: [
     ReactiveFormsModule,

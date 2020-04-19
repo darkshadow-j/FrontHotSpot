@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {PortList, ProfileService, Router} from '../services/profile.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {inspect} from 'util';
+import {PowiadomienieComponent} from '../powiadomienie/powiadomienie.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,25 +12,37 @@ import {PortList, ProfileService, Router} from '../services/profile.service';
 export class DashboardComponent implements OnInit {
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  routersCount: any;
+  routersCount: number;
   dataSource: any;
   unavaiableRouters: Router[];
 
+  messages = [
+    {
+      text: 'Brak Skonfigurowanych routerów',
+    }
+  ];
 
-  constructor(private service: ProfileService) {
+  constructor(private service: ProfileService, private snackBar: PowiadomienieComponent) {
   }
 
   ngOnInit(): void {
-
     this.service.getRoutersCount().subscribe(value => {
       this.routersCount = value;
+      if (this.routersCount <= 0) {
+        this.snackBar.openSnackBar(this.messages, 'Close', 'red-snackbar');
+      }
     });
+
+    console.log(this.routersCount);
+
     this.service.getRoutersList().subscribe(value => {
       /*   this.dataSource = value;*/
     });
     this.service.getUnAvailableRouters().subscribe(value => {
       this.unavaiableRouters = value;
     });
+
+
   }
 
 }
@@ -52,3 +67,16 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];*/
 
 
+@Component({
+  selector: 'app-powiadomienia',
+  templateUrl: 'powiadomienia.component.html',
+})
+export class PowiadomieniaComponent {
+}
+
+@Component({
+  selector: 'app-powiadomienia-router',
+  templateUrl: 'router-powiadomienia.component.html',
+})
+export class RouterPowiadomieniaComponent {
+}

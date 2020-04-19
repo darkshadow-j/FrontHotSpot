@@ -57,6 +57,9 @@ export class ProfileService {
   editOneProfile(prof: Profiles): Observable<Profiles> {
     return this.httpClient.put<Profiles>('http://localhost:8080/profile', prof);
   }
+/*  deleteOneProfile(prof: Profiles): Observable<Profiles>{
+    return this.httpClient.delete<Profiles>('http://localhost:8080/profile', prof.id);
+  }*/
 }
 
 export interface Router {
